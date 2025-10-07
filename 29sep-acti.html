@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro Accesible</title>
+    <style>
+        /* Estilos base para accesibilidad visual */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        .contenedor {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        /* Estilos para enfoque de teclado visible */
+        input:focus,
+        select:focus,
+        textarea:focus,
+        button:focus {
+            outline: 3px solid #2A7FFF;
+            outline-offset: 2px;
+            box-shadow: 0 0 5px rgba(42, 127, 255, 0.5);
+        }
+        /* Contraste adecuado (4.5:1 mínimo) */
+        .etiqueta {
+            display: block;
+            margin-bottom: 8px;
+            color: #1a1a1a; /* Contraste 15:1 con fondo blanco */
+            font-weight: bold;
+        }
+        .campo {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 16px;
+            border: 2px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        /* Feedback de errores claro */
+        .error {
+            color: #d8000c;
+            background-color: #ffd2d2;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 4px;
+            display: none; /* Se mostrará con JavaScript */
+        }
+        /* Diseño responsive */
+        @media (max-width: 480px) {
+            .contenedor {
+                padding: 15px;
+            }
+            .campo {
+                font-size: 16px; /* Mejor legibilidad en móviles */
+            }
+        }
+        /* Estilos para screen readers (accesibilidad) */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0,0,0,0);
+            border: 0;
+        }
+    </style>
+</head>
+<body>
+    <main class="contenedor">
+        <h1>Registro Accesible</h1>
+        <!-- Mensaje de error accesible -->
+        <div class="error" role="alert" aria-live="polite">&nbsp;</div>
+        <form id="formRegistro" aria-label="Formulario de registro">
+            <!-- Campo nombre con label asociada -->
+            <label class="etiqueta" for="nombre"> Nombre completo:
+                <span class="sr-only">(campo obligatorio)</span>
+                <input id="nombre" class="campo" name="nombre" required="" type="text" aria-required="true">
+            </label>
+            <!-- Campo email con tipo específico y validación HTML5 -->
+            <label class="etiqueta" for="email"> Correo electrónico:
+                <input id="email" class="campo" name="email" required="" type="email" aria-required="true" aria-describedby="emailHelp">
+            </label>
+            <small id="emailHelp" class="sr-only">Formato válido: usuario@dominio.com</small>
+            <!-- Grupo de opciones accesible -->
+            <fieldset>
+                <legend class="etiqueta">Método de contacto preferido:</legend>
+                <label class="etiqueta" for="telefono">
+                    <input id="telefono" name="contacto" type="radio" value="telefono" aria-checked="false"> Teléfono
+                </label>
+                <label class="etiqueta" for="emailContacto">
+                    <input id="emailContacto" name="contacto" type="radio" value="email" aria-checked="false"> Correo electrónico
+                </label>
+            </fieldset>
+            <!-- Botón con etiqueta semántica -->
+            <button class="campo" style="background-color: #2a7fff; color: white;" type="submit"> Enviar registro
+            </button>
+        </form>
+    </main>
+    <script>
+        // Validación básica accesible
+        document.getElementById('formRegistro').addEventListener('submit', function(e) {
+            const errorDiv = document.querySelector('.error');
+            const nombre = document.getElementById('nombre').value;
+           
+            if(nombre.length < 2) {
+                e.preventDefault();
+                errorDiv.textContent = 'Por favor ingrese un nombre válido (mínimo 2 caracteres)';
+                errorDiv.style.display = 'block';
+                document.getElementById('nombre').focus();
+            }
+        });
+    </script>
+</body>
+</html>

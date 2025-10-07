@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <tittle> Mi página</tittle>
+    <link rel="stylesheet" href="paginaaacss.css"/>
+
+</head>
+<body>
+    <header>
+        <h1>Mi página semántica</h1>
+        <nav>
+            <ul>
+                <li><a href="#Inicio">Inicio</a></li>
+                <li><a href="#about">Sobre Nosotros</a></li>
+                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#contact">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+ <main>
+        <section id="Inicio">
+            <h2>Bienvenido</h2>
+            <p> Esta es la sección de entretenimiento</p>
+        </section>
+        <section id="about">
+            <h2>Sobre Nosotros</h2>
+            <article>
+                <h3>Nuestra Historia</h3>
+                <p>En esta sección, cuenta la historia de Alicia y el conejo</p>
+            </article>
+            <article>
+                <h3>Equipo</h3>
+                <p>Presenta a tu equipo</p>
+            </article>
+        </section>
+        <section id="services">
+            <h2>Servicios</h2>
+            <article>
+                <h3> Servicio 1</h3>
+                <p>Descripción del primer servicio</p>
+            </article>
+            <article>
+                <h3>Servicio 2</h3>
+                <p>Descripción del segundo servicio</p>
+            </article>
+        </section>
+        <section id="contact">
+            <h2>Contacto</h2>
+            <p id="parrafo_contacto">Informacion de de contacto, direccion, correo, etc</p> <p>
+        </section>
+ </main>
+<button onclick="cambiartexto()">Clic aquí para cambiar texto</button>
+ <footer>
+    <p>&copy; 2025 Mi Página Web, todos los derechos reservados</p>
+ </footer>
+</body>
+
+<script>
+    function cambiartexto()
+    {
+    document.getElementoById('parrafo_contacto').textContent='Texto cambiado desde js';
+    }
+</script>
+</html>

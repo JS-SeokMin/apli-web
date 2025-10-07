@@ -1,0 +1,22 @@
+.sprite{
+    background-image: url('figu.png');
+    background-repeat: no-repeat;
+    display:inline-block;
+    
+}
+/*icono 1*/
+.icono1{
+    width: 220px; /*ancho del icono */
+    height: 350px; /*alto del icono*/
+    background-position: 0 0; /*Posicion en el sprite*/
+}
+.icono2{
+    width: 210px; /*ancho del icono */
+    height: 350px; /*alto del icono*/
+    background-position: -200px 0; /*desplazado a la izquierda*/
+}
+.icono3{
+    width: 200px; /*ancho del icono */
+    height: 350px; /*alto del icono*/
+    background-position: -400px 0; /*mas desplazado*/
+}

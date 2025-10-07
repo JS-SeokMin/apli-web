@@ -1,0 +1,14 @@
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .form-group input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            padding: 10px 15px;
+            font-size: 16px;
+        }
+    
